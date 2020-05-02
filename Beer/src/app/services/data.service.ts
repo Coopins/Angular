@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { IBeer } from '../interfaces/ibeer';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { ApiService } from './api.service';
 export class DataService {
 
   constructor(private apiService: ApiService) { }
-async getBeers(){
+
+async getBeers(): Promise<IBeer[]> {
 return await this.apiService.get();
 }
 }

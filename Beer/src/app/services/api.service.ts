@@ -10,6 +10,6 @@ private BEER_URL = 'https://api.punkapi.com/v2/beers';
   constructor(private httpClient: HttpClient) { }
 
   async get() {
-return this.httpClient.get<IBeer>(this.BEER_URL).toPromise();
+return this.httpClient.get<IBeer[]>(this.BEER_URL).toPromise();
   }
 }
