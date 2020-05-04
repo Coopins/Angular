@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
 loginForm: FormGroup;
+loginInvalid = false;
 get passwordValid(): boolean {
   return !this.loginForm.controls.inputPassword.valid && this.loginForm.controls.inputPassword.touched;
 }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.loginForm = this.formBuilder.group({
       inputEmail: ['', Validators.compose([
         Validators.required,
@@ -32,7 +34,8 @@ get passwordValid(): boolean {
   ngOnInit(): void {
   }
   submit(){
-    console.log(this.loginForm);
+    this.loginInvalid = this.authService.login(this.loginForm.controls.inputEmail.value,
+      this.loginForm.controls.inputPassword.value);
   }
 
 }

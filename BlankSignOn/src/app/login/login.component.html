@@ -8,5 +8,6 @@
             <input type="password" id="inputPassword" formControlName="inputPassword" class="form-control" placeholder="Password">
             <label class="alert alert-danger" *ngIf="passwordValid">Password Is Required</label>
             <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Login</button>
+            <label class="alert alert-danger" *ngIf="loginInvalid">Invalid Username/Password</label>
         </form>
     </div>
