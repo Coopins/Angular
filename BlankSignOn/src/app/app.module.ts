@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
